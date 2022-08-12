@@ -6,3 +6,6 @@ node_modules
 .output
 .env
 dist
+
+# generaeted by NITRO_PRESET=firebase npm run build
+firebase.json
