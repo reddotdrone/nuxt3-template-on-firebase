@@ -1,6 +1,6 @@
 <template lang="pug">
-div(class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover h-96 lg:h-screen")
-  div(class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed")
+div(class="p-12 text-center h-96 lg:h-screen")
+  div(class="w-full h-full")
     div(class="flex justify-center items-center h-full")
       div(class="text-black")
         h2(class="font-semibold text-4xl mb-4") Nuxt3 Template on Firebase
@@ -9,4 +9,14 @@ div(class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover h-96 
           role="button"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light") The codes on Github
+
 </template>
+
+<script setup lang="ts">
+
+onMounted(() => {
+  authStateWrapper((user: User) => {
+    console.log(user)
+  })
+})
+</script>

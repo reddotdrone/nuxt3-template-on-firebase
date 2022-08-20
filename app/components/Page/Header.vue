@@ -19,7 +19,7 @@ https://tailwindui.com/components/application-ui/navigation/navbars
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+              <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</NuxtLink>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@ https://tailwindui.com/components/application-ui/navigation/navbars
                   <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
+                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']" @click="sign_out">Sign out</a>
                 </MenuItem>
               </MenuItems>
             </transition>
@@ -67,9 +67,22 @@ https://tailwindui.com/components/application-ui/navigation/navbars
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 
-const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Dashboard', href: '#', current: false },
-  { name: 'Profile', href: '#', current: false },
-]
+const navigation = reactive([
+  { id: "index", name: 'Home', href: './', current: false },
+  { id: "login", name: 'Login', href: './login', current: false },
+])
+
+onMounted(() => {
+  const router = useRouter();
+  router.afterEach((to, from, failure) => {
+    navigation.forEach(nav => {
+      if(to.name == nav.id) {
+        nav.current = true
+      } else {
+        nav.current = false
+      }
+    })
+  })
+})
+
 </script>

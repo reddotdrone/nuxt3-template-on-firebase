@@ -35,11 +35,20 @@ Web: https://nuxt3-template-on-firebase.web.app/
 Cloud functions: https://us-central1-nuxt3-template-on-firebase.cloudfunctions.net/helloWorld
 
 ## Library
-CSS Framework: Tailwind CSS (https://tailwindcss.com/)
-Template Engine: Pug(https://github.com/pugjs/pug)
-
+Tailwind CSS (https://tailwindcss.com/)
 if you want to use Windi CSS, please install it accordingly.
+
+Pug(https://github.com/pugjs/pug)
+Pinia(https://pinia.vuejs.org)
+
 
 ## Organize multiple functions
 this project has 2 codebases in firebase.json for cloud functions. please check the further details of organizing multiple functions.
 https://firebase.google.com/docs/functions/organize-functions
+
+## Issues
+
+Installing pinia (https://github.com/vuejs/pinia/issues/853)
+```bash
+npm install --legacy-peer-deps pinia
+```
