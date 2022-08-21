@@ -4,7 +4,7 @@ https://v3.nuxtjs.org
 https://firebase.google.com
 
 # nuxt version
-3.0.0-rc.6
+3.0.0-rc.8
 
 # Run nuxt
 ```bash
