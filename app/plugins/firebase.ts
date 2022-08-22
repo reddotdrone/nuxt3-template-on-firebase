@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app"
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore"
 import { getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
 import { connectStorageEmulator, getStorage } from "firebase/storage";
+import { getAnalytics, logEvent } from 'firebase/analytics'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -12,14 +13,16 @@ const firebaseConfig = {
   storageBucket: "your storageBucket",
   messagingSenderId: "your messagingSenderId",
   appId: "your appId",
+  measurementId: "your measurementId"
 }
 
 export default defineNuxtPlugin(nuxtApp => {
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig)
   const firestore = getFirestore(app)
-  const storage = getStorage(app);
+  const storage = getStorage(app)
+  const analytics = getAnalytics(app)
 
   // Use emulators if needed
   // connectFirestoreEmulator(firestore, 'localhost', 8080);
@@ -38,7 +41,8 @@ export default defineNuxtPlugin(nuxtApp => {
   return {
     provide: {
       firestore: firestore,
-      storage: storage
+      storage: storage,
+      analytics: analytics
     }
   }
 })
