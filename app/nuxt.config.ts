@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     head: {
       title: 'Nuxt3 Template on Firebase',
       titleTemplate: '%s - Nuxt3 Template on Firebase',
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+      charset: 'utf-8',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
@@ -23,8 +25,8 @@ export default defineNuxtConfig({
   modules: [
     // use this if you use windi css
     //'nuxt-windicss',
-
     '@nuxt/content',
+    '@intlify/nuxt3',
   ],
 
   buildModules: [
@@ -34,6 +36,15 @@ export default defineNuxtConfig({
     // use this if you use tailwind css
     '@/assets/css/main.css',
   ],
+
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      availableLocales: ['en', 'ja']
+    }
+  },
 
   build: {
     transpile: [

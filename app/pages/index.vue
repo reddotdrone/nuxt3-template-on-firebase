@@ -10,9 +10,22 @@ div(class="p-12 text-center h-96 lg:h-screen")
           data-mdb-ripple="true"
           data-mdb-ripple-color="light") The codes on Github
 
+        div.pt-5
+          span(@click="changeLocale" class="px-7 py-3 mb-1 text-gray-500 font-medium text-sm leading-snug rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out") {{ $t('home.title') }}
+
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+useHead({
+  title: 'Home'
+})
+
+const { locale } = useI18n()
+const changeLocale = () => {
+  locale.value = (locale.value === 'en') ? 'ja' : 'en'
+}
 
 onMounted(() => {
   authStateWrapper((user: User) => {

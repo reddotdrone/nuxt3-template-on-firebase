@@ -7,6 +7,9 @@ div(class="p-12 text-center h-96 lg:h-screen")
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: 'Login'
+})
 
 onMounted(() => {
   useFirebaseLogin('#firebaseui-auth-container', async (authResult: any) => {
