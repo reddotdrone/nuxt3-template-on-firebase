@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
-export const authStateWrapper = (callback: (user?: User) => {}) => {
+export const authStateWrapper = (callback: (user?: User) => void) => {
 
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {

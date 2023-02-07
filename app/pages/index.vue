@@ -21,11 +21,11 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { User } from "firebase/auth";
 
 useHead({
   title: 'Home'
 })
-
 
 const { t, locale } = useI18n()
 const changeLocale = () => {
@@ -33,7 +33,7 @@ const changeLocale = () => {
 }
 
 onMounted(() => {
-  authStateWrapper((user: User) => {
+  authStateWrapper((user?: User) => {
     console.log(user)
   })
 })
