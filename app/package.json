@@ -24,7 +24,7 @@
     "firebase-admin": "^11.4.1",
     "firebase-functions": "^4.1.1",
     "firebase-functions-test": "^3.0.0",
-    "nuxt": "^3.0.0",
+    "nuxt": "^3.1.2",
     "postcss": "^8.4.19"
   },
   "dependencies": {
