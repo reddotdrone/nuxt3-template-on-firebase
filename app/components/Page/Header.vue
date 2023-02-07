@@ -46,7 +46,7 @@ https://tailwindui.com/components/application-ui/navigation/navbars
                   <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']" @click="sign_out">Sign out</a>
+                  <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']" @click="onSignOut">Sign out</a>
                 </MenuItem>
               </MenuItems>
             </transition>
@@ -71,6 +71,12 @@ const navigation = reactive([
   { id: "index", name: 'Home', href: './', current: false },
   { id: "login", name: 'Login', href: './login', current: false },
 ])
+
+const onSignOut = () => {
+  signOut(() => {
+    navigateTo("/")
+  })
+}
 
 onMounted(() => {
   const router = useRouter();
