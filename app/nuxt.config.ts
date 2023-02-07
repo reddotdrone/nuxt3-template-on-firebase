@@ -21,28 +21,36 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    // use this if you use windi css
-    //'nuxt-windicss',
     '@nuxt/content',
-    '@intlify/nuxt3',
-  ],
+    '@pinia/nuxt',
+    [
+      '@nuxtjs/i18n',
+      {
+        defaultLocale: 'en',
+        locales: ['en', 'ja'],
+        vueI18n: {
+          locale: 'en',
+          fallbackLocale: 'en',
+          availableLocales: ['en', 'ja'],
+          //silentFallbackWarn: true,
+          // missingWarn: false,
+          messages: {
+            en: {
 
-  buildModules: [
+            },
+            ja: {
+
+            }
+          }
+        }
+      }
+    ]
   ],
 
   css: [
-    // use this if you use tailwind css
     '@/assets/css/main.css',
   ],
 
-  intlify: {
-    localeDir: 'locales',
-    vueI18n: {
-      locale: 'en',
-      fallbackLocale: 'en',
-      availableLocales: ['en', 'ja']
-    }
-  },
 
   postcss: {
     plugins: {
@@ -54,8 +62,8 @@ export default defineNuxtConfig({
   build: {
     transpile: [
       '@headlessui/vue',
+      '@heroicons/vue'
     ],
   },
 
-  content: {},
 })

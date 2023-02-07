@@ -1,9 +1,11 @@
-<template lang="pug">
-div(class="p-12 text-center h-96 lg:h-screen")
-  div(class="w-full h-full")
-    div(class="flex justify-center items-center h-full")
-      div(id="firebaseui-auth-container" class="w-full")
-
+<template>
+  <div class="p-12 text-center h-96 lg:h-screen">
+    <div class="w-full h-full">
+      <div class="flex justify-center items-center h-full">
+        <div id="firebaseui-auth-container" class="w-full"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,5 @@
-<template lang="pug">
-html
-  body
-    NuxtLayout
-      NuxtPage
+<template>
+  <NuxtLayout>
+    <NuxtPage></NuxtPage>
+  </NuxtLayout>
 </template>

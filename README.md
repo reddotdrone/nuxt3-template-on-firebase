@@ -36,11 +36,7 @@ Cloud functions: https://us-central1-nuxt3-template-on-firebase.cloudfunctions.n
 
 ## Library
 Tailwind CSS (https://tailwindcss.com/)
-if you want to use Windi CSS, please install it accordingly.
-
-Pug(https://github.com/pugjs/pug)
 Pinia(https://pinia.vuejs.org)
-
 
 ## Organize multiple functions
 this project has 2 codebases in firebase.json for cloud functions. please check the further details of organizing multiple functions.
